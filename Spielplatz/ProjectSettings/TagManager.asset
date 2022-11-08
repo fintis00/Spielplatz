@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Points
   - Ground
+  - DamageArea
   layers:
   - Default
   - TransparentFX

@@ -10,19 +10,26 @@ public class Movement : MonoBehaviour
     public float jumpForce = 2.0f;
     [SerializeField]
     private Rigidbody rb;
+    [SerializeField]
+    private GameObject Camera;
+    [SerializeField]
+    private GameObject dashDamageArea;
 
     public Transform cam;
-
+    
     private float xInput;
     private float yInput;
 
+    private Vector3 playerTransformVector;
     private Vector3 jump;
     public bool isGrounded;
+    public bool dashActive;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f) * Time.deltaTime;
+        playerTransformVector = GetComponent<Transform>().position;
     }
 
     private void Update()
@@ -34,15 +41,27 @@ public class Movement : MonoBehaviour
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isGrounded) //dash down
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.AddForce(-jump * jumpForce, ForceMode.Impulse);
+            dashActive = true;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ground"))
         {
-            isGrounded = true;
-            Debug.Log("grounded");
+            isGrounded = true;       
         }
-        
+        if (other.CompareTag("Ground") && dashActive==true)
+        {
+            dashActive = false;           
+            Camera.GetComponent<CameraController>().shakeDuration = 0.2f;
+            Instantiate(dashDamageArea, GetComponent<Transform>().position, Quaternion.identity );
+        }
+
     }
     void FixedUpdate()
     {
