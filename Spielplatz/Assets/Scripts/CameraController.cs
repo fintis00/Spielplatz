@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     {
         cam = GetComponent<Transform>();
         offset = transform.position - player.transform.position;
-        
+        offset.x = -offset.x;
     }
 
     // Update is called once per frame
