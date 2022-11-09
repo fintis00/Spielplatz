@@ -28,7 +28,7 @@ public class KillableObject : MonoBehaviour
         {
             if(deathParticlesenabled == true)
                 Instantiate(KillabeObjectParticle, GetComponent<Transform>().position, Quaternion.identity);
-            Debug.Log("death");
+            
             Object.Destroy(gameObject);
         }
     }
