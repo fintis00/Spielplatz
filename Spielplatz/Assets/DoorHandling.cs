@@ -19,7 +19,7 @@ public class DoorHandling : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isOpen)
         {
-            LeanTween.moveLocalX(door, -8, 3);
+            LeanTween.moveLocalX(door, -8, 4).setEaseInOutSine();
             AudioSource.PlayClipAtPoint(doorSound, cam.position, volume);
             isOpen = true;
             Invoke(nameof(CloseDoor), 7);
@@ -28,7 +28,7 @@ public class DoorHandling : MonoBehaviour
 
     private void CloseDoor()
     {
-        LeanTween.moveLocalX(door, -5, 3);
+        LeanTween.moveLocalX(door, -5, 4).setEaseInOutSine();
         isOpen = false;
     }
     
