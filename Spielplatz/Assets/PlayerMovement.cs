@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     public bool readyToJump;
+    public float fallMultiplier;
 
     [Header("KeyBinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     bool dashActive;
+    
 
     Vector3 moveDirection;
 
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        rb.mass = 1;
         readyToJump = true;
     }
 
@@ -61,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if (rb.velocity.y < 0)
+            {
+                rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
             CheckDash();
             rb.drag = 0;
         }
