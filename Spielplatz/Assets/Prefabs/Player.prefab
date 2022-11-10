@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawn: {fileID: 0}
+  audiRespawn: {fileID: 0}
+  volume: 0.1
+  cam: {fileID: 0}
 --- !u!114 &2151270714237515993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +149,9 @@ MonoBehaviour:
   rb: {fileID: 2151270714237515994}
   Camera: {fileID: 0}
   dashDamageArea: {fileID: 4856259860564237166, guid: 38b550bb782478842b90d37fdd08d46c, type: 3}
+  audioDashDamageArea: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
   cam: {fileID: 0}
+  volume: 0.09
   isGrounded: 0
   dashActive: 0
 --- !u!114 &4695215145972139689
@@ -163,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: d816017ed5a8b1e4287b79715be159ed, type: 3}
   pointmanager: {fileID: 11400000, guid: f5eed2cd8ab47934b92ea31e7b899e20, type: 2}
+  volume: 0.2
 --- !u!96 &7204260688425997101
 TrailRenderer:
   serializedVersion: 2

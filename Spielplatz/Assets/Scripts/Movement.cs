@@ -14,11 +14,16 @@ public class Movement : MonoBehaviour
     private GameObject Camera;
     [SerializeField]
     private GameObject dashDamageArea;
+    [SerializeField]
+    private AudioClip audioDashDamageArea;
 
     public Transform cam;
     
+
     private float xInput;
     private float yInput;
+
+    public float volume;
 
     private Vector3 playerTransformVector;
     private Vector3 jump;
@@ -57,7 +62,8 @@ public class Movement : MonoBehaviour
         }
         if (other.CompareTag("Ground") && dashActive==true)
         {
-            dashActive = false;           
+            dashActive = false;
+            AudioSource.PlayClipAtPoint(audioDashDamageArea, cam.position,volume);
             Camera.GetComponent<CameraController>().shakeDuration = 0.2f;
             Instantiate(dashDamageArea, GetComponent<Transform>().position, Quaternion.identity );
         }

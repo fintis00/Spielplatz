@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60569b7ecaf2b234197621c22fca554c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 4
   KillabeObjectParticle: {fileID: 1757142475708945942, guid: 65c2d165aa5be7e40ba7c440c3d4a48d, type: 3}
   deathParticlesenabled: 1
   hitColorChangeenabled: 1
