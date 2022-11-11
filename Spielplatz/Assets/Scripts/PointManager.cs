@@ -21,4 +21,8 @@ public class PointManager : ScriptableObject
         if (highscore < score)
             highscore = score;
     }
+    public void setZero()
+    {
+        score = 0;
+    }
 }

@@ -42,10 +42,13 @@ public class PlayerMovement : MonoBehaviour
     private AudioClip audioDashDamageArea;
     public float volume;
 
+   public PointManager pointManager;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        pointManager.setZero();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.mass = 1;
@@ -55,9 +58,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, whatIsGround)
-                || Physics.Raycast(transform.position, Vector3.right, playerHeight * 0.5f + 0.1f, whatIsGround)
-                || Physics.Raycast(transform.position, Vector3.left, playerHeight * 0.5f + 0.1f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, whatIsGround);
+                
         MyInput();
         SpeedControl();
         if (grounded)
@@ -129,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if (flatVel.magnitude > moveSpeed)
         {

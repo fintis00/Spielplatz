@@ -7,9 +7,6 @@ using UnityEngine;
 public class CinemachineShake : MonoBehaviour
 {
     private CinemachineFreeLook freeLook;
-    private CinemachineVirtualCamera bottomRig;
-    private CinemachineVirtualCamera middleRig;
-    private CinemachineVirtualCamera topRig;
     private float shakeTimer;
 
     public static CinemachineShake Instance { get; private set; }
