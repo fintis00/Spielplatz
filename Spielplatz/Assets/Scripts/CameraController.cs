@@ -26,9 +26,10 @@ public class CameraController : MonoBehaviour
     {      
         if (shakeDuration > 0 && camerashake_enable)
         {
-            cam.localPosition = (player.transform.position + offset) + Random.insideUnitSphere * shakeAmount;
+           //cam.localPosition = (player.transform.position + offset) + Random.insideUnitSphere * shakeAmount;
             //transform.position = player.transform.position + offset;
-            shakeDuration -= Time.deltaTime * decreaseFactor;
+            //shakeDuration -= Time.deltaTime * decreaseFactor;
+           
         }
         else
         {
