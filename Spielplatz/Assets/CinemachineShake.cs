@@ -17,23 +17,18 @@ public class CinemachineShake : MonoBehaviour
     {
         Instance = this;
         freeLook = GetComponent<CinemachineFreeLook>();
-        bottomRig = freeLook.GetRig(0);
-        middleRig = freeLook.GetRig(1);
-        topRig = freeLook.GetRig(2);
         
         
     }
     public void ShakeCamera(float intensity,float time)
     {
-        CinemachineBasicMultiChannelPerlin cp_bottom = bottomRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cp_bottom.m_AmplitudeGain= intensity;
-        //cp_bottom.m_PivotOffset= offset;
-        CinemachineBasicMultiChannelPerlin cp_middle = middleRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cp_middle.m_AmplitudeGain = intensity;
-        //cp_middle.m_PivotOffset= offset;
-        CinemachineBasicMultiChannelPerlin cp_top = topRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        cp_top.m_AmplitudeGain = intensity;
-        //cp_top.m_PivotOffset= offset;
+        for (int i = 0; i < 3; i++)
+        {
+            CinemachineBasicMultiChannelPerlin cp = freeLook.GetRig(i).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            
+            cp.m_AmplitudeGain = intensity;
+            
+        }
         shakeTimer = time;
     }
 
@@ -44,13 +39,12 @@ public class CinemachineShake : MonoBehaviour
             shakeTimer -= Time.deltaTime;
             if (shakeTimer <= 0f)
             {
-                CinemachineBasicMultiChannelPerlin cp_bottom = bottomRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                CinemachineBasicMultiChannelPerlin cp_middle = middleRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                CinemachineBasicMultiChannelPerlin cp_top = topRig.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
-                cp_bottom.m_AmplitudeGain = 0f;
-                cp_middle.m_AmplitudeGain = 0f;
-                cp_top.m_AmplitudeGain = 0f;
+                for (int i = 0; i < 3; i++)
+                {
+                    
+                    CinemachineBasicMultiChannelPerlin cp = freeLook.GetRig(i).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    cp.m_AmplitudeGain = 0f;
+                }
             }
         }
     }

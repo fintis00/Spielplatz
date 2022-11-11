@@ -55,12 +55,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (readyToJump)
-        {
             grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, whatIsGround)
                 || Physics.Raycast(transform.position, Vector3.right, playerHeight * 0.5f + 0.1f, whatIsGround)
                 || Physics.Raycast(transform.position, Vector3.left, playerHeight * 0.5f + 0.1f, whatIsGround);
-        }
         MyInput();
         SpeedControl();
         if (grounded)
@@ -76,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             CheckDash();
             rb.drag = 0;
         }
+        
     }
 
     private void FixedUpdate()
@@ -99,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(audioDashDamageArea, cam.position, volume);
             Camera.GetComponent<CameraController>().shakeDuration = 0.2f;
             Instantiate(dashDamageArea, GetComponent<Transform>().position, Quaternion.identity);
-            CinemachineShake.Instance.ShakeCamera( 3f, 0.2f);
+            CinemachineShake.Instance.ShakeCamera( 6f, 0.4f);
         }
     }
     private void MyInput()
