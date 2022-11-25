@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 9095922921254129457}
   - component: {fileID: 9095922921254129458}
   - component: {fileID: 9095922921254129459}
-  - component: {fileID: 9095922921254129612}
   - component: {fileID: 9095922921254129613}
   - component: {fileID: 9095922921254129463}
   - component: {fileID: 9095922921254129462}
+  - component: {fileID: 6131746334068718552}
+  - component: {fileID: 4239354526637046767}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -99,22 +100,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9095922921254129612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095922921254129614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60569b7ecaf2b234197621c22fca554c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 1
-  KillabeObjectParticle: {fileID: 1757142475708945942, guid: 65c2d165aa5be7e40ba7c440c3d4a48d, type: 3}
-  deathParticlesenabled: 1
-  hitColorChangeenabled: 1
 --- !u!114 &9095922921254129613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +142,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6131746334068718552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095922921254129614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9870dd6784d8083488a2054cfe4feba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4239354526637046767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095922921254129614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60569b7ecaf2b234197621c22fca554c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  maxhp: 0
+  KillabeObjectParticle: {fileID: 1757142475708945942, guid: 65c2d165aa5be7e40ba7c440c3d4a48d, type: 3}
+  deathParticlesenabled: 1
+  hitColorChangeenabled: 1

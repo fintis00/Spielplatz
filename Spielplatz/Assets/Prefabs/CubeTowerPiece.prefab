@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 3958585537652911004}
   - component: {fileID: 5109092353232236687}
   - component: {fileID: -1136770704674410336}
-  m_Layer: 0
+  - component: {fileID: -694466610580747572}
+  m_Layer: 10
   m_Name: CubeTowerPiece
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -143,3 +144,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-694466610580747572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385993514107894585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9870dd6784d8083488a2054cfe4feba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

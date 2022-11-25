@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - DamageArea
   - Enemy
+  - PlayObjects
   layers:
   - Default
   - TransparentFX

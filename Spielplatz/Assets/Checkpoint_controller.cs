@@ -19,4 +19,11 @@ public class Checkpoint_controller : MonoBehaviour
             checkpoint.GetComponent<Renderer>().material.color = myColor;
         }
     }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.R))
+        {
+            checkpoint.GetComponent<Renderer>().material.color = white;
+        }
+    }
 }

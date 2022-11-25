@@ -14,8 +14,17 @@ public class PointCollector : MonoBehaviour
         if (other.CompareTag("Points"))
         {
             AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position,volume);
-            Destroy(other.gameObject);
+            other.GetComponent<BoxCollider>().enabled = false;
+            other.GetComponent<MeshRenderer>().enabled = false;
             pointmanager.AddPoint();
+            
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.R)) {
+            pointmanager.setZero();
         }
     }
 }

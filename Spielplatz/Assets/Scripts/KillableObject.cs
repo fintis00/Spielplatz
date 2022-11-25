@@ -5,9 +5,15 @@ using UnityEngine;
 public class KillableObject : MonoBehaviour
 {
     public float hp;
+    public float maxhp;
     public GameObject KillabeObjectParticle;
     public bool deathParticlesenabled;
     public bool hitColorChangeenabled;
+
+    private void Start()
+    {
+        maxhp= hp;
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DamageArea"))
@@ -26,11 +32,27 @@ public class KillableObject : MonoBehaviour
     {
         if (hp < 1)
         {
-            if(deathParticlesenabled == true)
+            if(deathParticlesenabled == true && GetComponent<MeshRenderer>().enabled)
                 Instantiate(KillabeObjectParticle, GetComponent<Transform>().position, Quaternion.identity);
             
-            Object.Destroy(gameObject);
+                GetComponent<Collider>().enabled = false;
+                
+            
+            GetComponent<MeshRenderer>().enabled = false;
+            deathParticlesenabled = false;
+
+
         }
+        if(Input.GetKey(KeyCode.R))
+        {
+            hp = maxhp;
+            deathParticlesenabled = true;
+            
+                GetComponent<Collider>().enabled = true;
+
+            GetComponent<MeshRenderer>().enabled = true;
+        }
+       
     }
     public void ChangeColor()
     {

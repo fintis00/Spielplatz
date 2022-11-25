@@ -9,7 +9,8 @@ public class StopWatch : MonoBehaviour
     public float timeStart;
     public Text textBox;
     bool timerActive = false;
-
+    public Text keyText;
+    public Text resetText;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class StopWatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(Input.GetKeyDown(KeyCode.K)) {
             TimerButton();
         }
@@ -26,13 +28,21 @@ public class StopWatch : MonoBehaviour
         {
             timeStart += Time.deltaTime;
             textBox.text = timeStart.ToString("F2");
+            keyText.text = "Press \"K\" to stop timer";
+            resetText.text = "";
+
+
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.L)) {
+            resetText.text = "Press \"L\" to Reset the Timer";
+            if (Input.GetKeyDown(KeyCode.L)) {
                 timeStart = 0.00f;
                 textBox.text = timeStart.ToString("F2");
+
+                keyText.text = "Press \"K\" to start timer";
             }
+            
         }
     }
 
