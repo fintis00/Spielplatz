@@ -9,6 +9,7 @@ TagManager:
   - DamageArea
   - Enemy
   - PlayObjects
+  - respawnPlane
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - 
   - whatIsGround
-  - 
+  - invisible
   - 
   - 
   - 
